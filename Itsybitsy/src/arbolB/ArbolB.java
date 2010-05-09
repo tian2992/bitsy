@@ -15,7 +15,7 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
     private Nodo<K,V> mRaiz = null;
     private int mK = 2;
     private int mAltura = 0;
-
+    private int tama = 0;
 
     java.util.Comparator comparador = new Comparator();
 
@@ -33,6 +33,7 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
     }
 
     public void insert(K key, V obj) {
+        tama++;
         if (this.mAltura == 0) {
             this.mRaiz = new Nodo<K,V>(this.mK, key, obj);
             this.mAltura = 1;
@@ -189,11 +190,12 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
         mRaiz = null;
     }
 
+    public int size() {
+        return tama;
+    }
 
     //=================================Unsuported Classes
-    public int size() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+
 
     public boolean isEmpty() {
         throw new UnsupportedOperationException("Not supported yet.");
