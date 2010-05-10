@@ -54,12 +54,10 @@
     String apellidos = request.getParameter("apellido").toString();
     String fechanac = request.getParameter("nacimiento").toString();
 
-    Herramientas t = new Herramientas();
-
     String rawPass = EncriptadorMD5.MD5(pass);
 
     //Verificar que la direccion de correo electronico, tenga una estructura v�lida
-    if (!t.isEmail(user)) {
+    if (!Herramientas.isEmail(user)) {
         session.setAttribute("Mensaje", "Error la direccion de correo electronica no es valida");
 
         huboError = true;
