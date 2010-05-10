@@ -12,9 +12,33 @@ public class Herramientas {
 
 
     private static Connection mConexion = null;
+    private static final String USERNAME = "root";
+    private static final String PASS = "witchy";
+    private static final String ROUTE = "jdbc:mysql://localhost/Pro3Edd";
+    
+    
+    /**
+     * Crea una nueva conexion al ser llamado
+     * @return una nueva conexion
+     */
+    public static Connection connectionFactory(){
+        try {
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        //creamos la conexion
+        Connection conn =
+            DriverManager.getConnection(ROUTE,
+                                        //nombre base de datos
+                USERNAME, //usuario
+                PASS); //contrase�a
+            return conn;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     /**
-     * Establecer conexion a base de datos (MySql)
+     * Retorna una conexión unica compartida
      * @return conexion
      */
     public static Connection getConnection() {
@@ -24,31 +48,13 @@ public class Herramientas {
         }
 
         //si la conexion no existe, crearla
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            //creamos la conexion
-            Connection conn =
-                DriverManager.getConnection("jdbc:mysql://localhost/Pro3Edd",//nombre base de datos
-                                            "root", //usuario
-                                            "witchy"); //contrase�a
-
-            mConexion = conn; //guardar la conexion actual
-
-            return conn;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-
+        return connectionFactory();
     }
 
     /**
      * Verificar si el correo ingresado es correcto 
      */
-    public boolean isEmail(String correo) {
+    public static boolean isEmail(String correo) {
 
         Pattern pat = null;
         Matcher mat = null;
