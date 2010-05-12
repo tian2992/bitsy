@@ -13,7 +13,7 @@ public class Herramientas {
 
     private static Connection mConexion = null;
     private static final String USERNAME = "root";
-    private static final String PASS = "witchy";
+    private static final String PASS = "";
     private static final String ROUTE = "jdbc:mysql://localhost/Pro3Edd";
     
     
