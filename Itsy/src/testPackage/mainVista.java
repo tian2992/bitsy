@@ -11,6 +11,8 @@ public class mainVista {
         
         ItsyVista app = new ItsyVista();
         
+        System.out.println("Ultimo Commit Bueno, porfin!");
+        
         try {
             app.setVisible(true);
         } catch (Exception e) {
