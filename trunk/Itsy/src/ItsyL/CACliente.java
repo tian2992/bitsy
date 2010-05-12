@@ -2,54 +2,13 @@ package ItsyL;
 
 import java.io.File;
 
-import java.io.FileWriter;
-
-import java.net.InetAddress;
-
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-public class CACliente {  
-    
-   private String pHost = "";   
-   private String pIp = "";
-   
-    public CACliente() {    
- 
-         try {
+public class CACliente {
+    public CACliente() {
 
-            InetAddress addr = InetAddress.getLocalHost();
-
-            pHost = addr.getHostName();
-
-            pIp = addr.getHostAddress();
-
-        } catch (Exception e) {
-        
-            e.printStackTrace();
-        }
-
-    }  
-    
-    /**
-     * Escribe en un archivo de texto el xml generado a partir de la carpeta a compartir seleccionada.
-     * @param
-     */
-    public void escribirXML(String pPath){
-        
-        try {
-            
-            FileWriter f = new FileWriter("C:\\Users\\Black Empires\\Documents\\algo.xml");
-            
-            f.write(escrituraXML( pHost , pIp ,pPath));
-            
-            f.close();
-            
-        } catch (Exception e) {
-          
-            e.printStackTrace();
-        }
     }
 
     public String escrituraXML(String pIdCliente, String pIp,
@@ -63,7 +22,7 @@ public class CACliente {
         
         b.append("id=\""+ pIdCliente + "\" ip=\"" + pIp + "\" raiz=\"" + f.getName() + "\"" );
 
-        b.append(">\n\n\n\n");
+        b.append(">\n");
 
         if ( f.isDirectory() ) {
 
@@ -111,10 +70,6 @@ public class CACliente {
         if ( f.isDirectory() ) {
 
             String[] contenido = f.list();
-            
-            if( contenido == null ) {
-                return ""; //carpeta vacia
-            }
 
             for (int i = 0; i < contenido.length; i++) { //para cada elemento dentro de esta carpeta
 
@@ -131,7 +86,7 @@ public class CACliente {
         }
 
 
-        b.append("</carpeta>\n\n\n");
+        b.append("</carpeta>\n");
 
         return b.toString();
 
@@ -162,8 +117,11 @@ public class CACliente {
             extension = nombre.substring(posicionDelPunto+1);
             
         } catch (Exception e) {
-         
-        }       
+            // TODO: Add catch code
+            //e.printStackTrace();
+        } 
+        
+        
         
         
         b.append("nombre=\"" + nombre + "\" size=\"" + f.length() + "\" fecha_modificacion=\"" + fecha_s + "\" extension=\"" + extension + "\""   );                                                       
@@ -171,24 +129,8 @@ public class CACliente {
         
         b.append(">\n");
 
-        b.append("</archivo>\n\n");
+        b.append("</archivo>\n");
 
         return b.toString();
-    }
-
-    public void setPHost(String pHost) {
-        this.pHost = pHost;
-    }
-
-    public String getPHost() {
-        return pHost;
-    }
-
-    public void setPIp(String pIp) {
-        this.pIp = pIp;
-    }
-
-    public String getPIp() {
-        return pIp;
     }
 }
