@@ -6,8 +6,8 @@ import java.io.FileWriter;
 
 import java.net.InetAddress;
 
-public class escrituraXML {
-    public escrituraXML() {
+public class TestEscrituraXML {
+    public TestEscrituraXML() {
 
     }
 

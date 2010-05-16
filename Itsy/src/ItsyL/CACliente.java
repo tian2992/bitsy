@@ -36,13 +36,17 @@ public class CACliente {
      * Escribe en un archivo de texto el xml generado a partir de la carpeta a compartir seleccionada.
      * @param
      */
-    public void escribirXML(String pPath){
+    public File escribirXML(String pPath, String pathDestino){
+        
+        File fi = new File (pathDestino);
+        
+        FileWriter f;
         
         try {
             
-            FileWriter f = new FileWriter("C:\\Users\\Black Empires\\Documents\\algo.xml");
+            f = new FileWriter(fi);
             
-            f.write(escrituraXML( pHost , pIp ,pPath));
+            f.write(escrituraXML(pHost,pIp,pPath));
             
             f.close();
             
@@ -50,6 +54,7 @@ public class CACliente {
           
             e.printStackTrace();
         }
+        return fi ;
     }
 
     public String escrituraXML(String pIdCliente, String pIp,
@@ -74,11 +79,12 @@ public class CACliente {
                 String actual = f.getAbsolutePath() + f.separator + contenido[i];
 
                 File temp = new File(actual);
-
-                if (temp.isDirectory()) { //si es directorio, bajar otra vez
-                    b.append(getXMLDeDirectorio(actual));
-                } else { 
-                    b.append(getXMLDeArchivo(actual)); //si es archivo agregarlo 
+                if (temp.canRead()){
+                    if (temp.isDirectory()) { //si es directorio, bajar otra vez
+                        b.append(getXMLDeDirectorio(actual));
+                    } else { 
+                        b.append(getXMLDeArchivo(actual)); //si es archivo agregarlo 
+                    }
                 }
             }
         }
@@ -121,11 +127,13 @@ public class CACliente {
                 String actual = f.getAbsolutePath() + f.separator + contenido[i];
 
                 File temp = new File(actual);
-
-                if (temp.isDirectory()) { //si es directorio, bajar otra vez
-                    b.append(getXMLDeDirectorio(actual));
-                } else { 
-                    b.append(getXMLDeArchivo(actual)); //si es archivo agregarlo 
+                
+                if (temp.canRead()){ //Evita que haya un bloqueo al no poder leer
+                    if (temp.isDirectory()) { //si es directorio, bajar otra vez
+                        b.append(getXMLDeDirectorio(actual));
+                    } else { 
+                        b.append(getXMLDeArchivo(actual)); //si es archivo agregarlo 
+                    }
                 }
             }
         }
