@@ -242,11 +242,11 @@ public class ItsyVista extends JFrame {
        
         btnTransferir.setVisible(true);
         
-        String pPath= ingresoDireccion.getText();
+        String pPath = ingresoDireccion.getText();
         
         CACliente cliente = new CACliente ();
         
-        cliente.escribirXML(pPath);
+        cliente.escribirXML(pPath, "cliente1.xml");
         
         //Metodo para transferir por socket pendiente 
         
@@ -260,7 +260,7 @@ public class ItsyVista extends JFrame {
         
         }else{
             
-            JOptionPane.showMessageDialog(null, "Ingrese una dirección en el cuadro de texto");
+            JOptionPane.showMessageDialog(null, "Ingrese una direcciï¿½n en el cuadro de texto");
         }
         
     }

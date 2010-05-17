@@ -34,7 +34,7 @@ public class CACliente {
     
     /**
      * Escribe en un archivo de texto el xml generado a partir de la carpeta a compartir seleccionada.
-     * @param
+     * @param path de carpeta, path de destino
      */
     public File escribirXML(String pPath, String pathDestino){
         
