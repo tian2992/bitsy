@@ -8,7 +8,7 @@ public class Item implements Serializable {
 
     private String nombre;
     private Date fechaModificacion;
-    private int tamaño;
+    private int tamaÃ±o;
     private String extension;
     boolean carpeta;
 
@@ -36,12 +36,12 @@ public class Item implements Serializable {
         return fechaModificacion;
     }
 
-    public void setTamaño(int tamaño) {
-        this.tamaño = tamaño;
+    public void setTamaÃ±o(int tamaÃ±o) {
+        this.tamaÃ±o = tamaÃ±o;
     }
 
-    public int getTamaño() {
-        return tamaño;
+    public int getTamaÃ±o() {
+        return tamaÃ±o;
     }
 
     public void setExtension(String extension) {
