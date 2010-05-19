@@ -24,9 +24,6 @@ public abstract class NetWorkControllerThread extends Thread {
             out = new PrintWriter(socket.getOutputStream(), true);
             input = socket.getInputStream();
             in = new BufferedReader(new InputStreamReader(input),1); //eso hace abstrae el inputreader, sin hacer sufrir los /n
-            
-            String inputLine, outputLine;
-
         }
         catch (Exception e){
             
@@ -40,7 +37,7 @@ public abstract class NetWorkControllerThread extends Thread {
             out.close();
         }
         catch (Exception e){
-            
+            e.printStackTrace();
         }
     }
     
