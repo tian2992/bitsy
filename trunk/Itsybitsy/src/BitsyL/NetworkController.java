@@ -17,7 +17,7 @@ import listaEnlazada.ListaEnlazada;
  * y se obtiene del objeto el resultado depende del objeto
  * 
  */
-public class NetworkController implements Runnable{
+public class NetworkController extends Thread{
 
     ServerSocket serverSocket = null;
     PrintWriter out = null;
@@ -27,7 +27,8 @@ public class NetworkController implements Runnable{
     static boolean iniciado = false;
     
     ListaEnlazada<Socket> sockets = new ListaEnlazada<Socket>();
-
+    
+    
 
     /**
      * @return
@@ -37,7 +38,7 @@ public class NetworkController implements Runnable{
             return true;
         }
         else{
-            NetworkController.getInstance().run();
+            NetworkController.getInstance().start();
             iniciado = true;
             return false;
         }
@@ -55,8 +56,10 @@ public class NetworkController implements Runnable{
             return;
         }
         try {
+            System.out.println("se ha comenzado a escuchar");
             while (listening) {
                 sockets.add(serverSocket.accept());
+                System.out.println("se ha conectado un cliente nuevo");
             }
             
             serverSocket.close();
