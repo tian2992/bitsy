@@ -7,11 +7,15 @@ import java.util.List;
 import listaEnlazada.*;
 
 public class ControladorBusqueda implements Serializable {
+
+    NetworkController netCon;
     public ControladorBusqueda() {
         super();
+        netCon = NetworkController.getInstance();
+        netCon.init();
     }
     
-    ArbolB<String,ListaEnlazada<Item>> arbolDatos;
+    volatile static ArbolB<String,ListaEnlazada<Item>> arbolDatos; //para evitar que hayan clavos con los thread
     
     /**
      * Busca
@@ -65,11 +69,12 @@ public class ControladorBusqueda implements Serializable {
 
     //Setters y Getters
 
-    public void setArbolDatos(ArbolB<String, ListaEnlazada<Item>> arbolDatos) {
-        this.arbolDatos = arbolDatos;
+    public static void setArbolDatos(ArbolB<String, ListaEnlazada<Item>> ab) {
+        arbolDatos = ab;
     }
 
-    public ArbolB<String, ListaEnlazada<Item>> getArbolDatos() {
+    public static ArbolB<String, ListaEnlazada<Item>> getArbolDatos() {
         return arbolDatos;
     }
+    
 }

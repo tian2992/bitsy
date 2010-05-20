@@ -1,0 +1,33 @@
+@import url(http://fonts.googleapis.com/css?family=Cardo);
+@import url(http://fonts.googleapis.com/css?family=Crimson+Text);
+
+body {
+  background-color:#111;
+  background-image: url(bg.png);
+  color: #eee;
+  font-family: 'Crimson Text', 'Calisto', serif;
+  font-style: normal;
+}
+
+h1, h2, h3, h4{
+  color: #ddd;
+  font-family: 'Cardo', Garamond , 'Georgia', serif;
+}
+
+strong {
+  
+}
+
+.superTitle{
+  color:#fff;
+  text-align:center;
+  font-size: 600%;
+
+}
+.searchbox{
+  height:400px;
+  width:640px;
+  background-image: url(boxbg.png);
+  background-repeat: no-repeat;
+  
+}
