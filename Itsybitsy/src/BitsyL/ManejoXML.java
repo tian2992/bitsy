@@ -40,7 +40,6 @@ public class ManejoXML {
         StringBuilder b = new StringBuilder();
         
         try {
-                        
             SAXBuilder builder = new SAXBuilder(false);
             
             Document doc = builder.build(pPath);
