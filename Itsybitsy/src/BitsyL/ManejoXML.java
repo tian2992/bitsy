@@ -33,7 +33,11 @@ public class ManejoXML {
         }
     }
     
-    
+    /**
+     * carga los xml en el arbol
+     *
+     * @param pPath es la path de la carpeta donde estan los indices XML de los clientes
+     */
     public void procesarXML( String pPath ) {
      
         

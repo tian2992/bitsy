@@ -28,6 +28,8 @@ public class NetworkController extends Thread{
     
     ListaEnlazada<Socket> sockets = new ListaEnlazada<Socket>();
     
+    public static final int PORT = 6148;
+    
     
 
     /**
@@ -50,9 +52,10 @@ public class NetworkController extends Thread{
     
     public void run(){
         try {
-            serverSocket = new ServerSocket(1992);
+            serverSocket = new ServerSocket(PORT);
+            System.out.println("Servidor Iniciado");
         } catch (IOException e) {
-            System.err.println("Error en el puerto: 1992.");
+            System.err.println("Error en el puerto: "+ PORT);
             return;
         }
         try {
