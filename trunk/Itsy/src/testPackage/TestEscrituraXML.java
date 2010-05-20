@@ -40,6 +40,8 @@ public class TestEscrituraXML {
                                                 "C:\\Users\\Black Empires\\Downloads"));
             
             f.close();
+          
+          System.out.println("listo");
             
         } catch (Exception e) {
             // TODO: Add catch code

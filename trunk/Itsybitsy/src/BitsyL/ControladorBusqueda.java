@@ -50,9 +50,9 @@ public class ControladorBusqueda implements Serializable {
         
         
         for (Item i: listaResultados){
-            if (i.getFechaModificacion().before(filtroFecha[0]) && i.getFechaModificacion().after(filtroFecha[1])){
+          //  if (i.getFechaModificacion().before(filtroFecha[0]) && i.getFechaModificacion().after(filtroFecha[1])){
                 
-            }
+           // }
         }
         
         return lista;
