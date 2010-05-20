@@ -1,4 +1,4 @@
-package testPackage;
+/*package testPackage;
 
 import junit.framework.TestCase;
 
@@ -13,4 +13,4 @@ public class ArbolBTest extends TestCase {
     @Before
     public void setUp() throws Exception {
     }
-}
+}*/

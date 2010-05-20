@@ -1,5 +1,6 @@
 package BitsyL;
 
+
 import java.io.Serializable;
 
 import java.util.Date;
@@ -7,9 +8,10 @@ import java.util.Date;
 public class Item implements Serializable {
 
     private String nombre;
-    private Date fechaModificacion;
-    private int tamaño;
+    private String fechaModificacion;
+    private String size;
     private String extension;
+    private String pathCompleto;
     boolean carpeta;
 
 
@@ -28,22 +30,6 @@ public class Item implements Serializable {
         return nombre;
     }
 
-    public void setFechaModificacion(Date fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-    }
-
-    public Date getFechaModificacion() {
-        return fechaModificacion;
-    }
-
-    public void setTamaño(int tamaño) {
-        this.tamaño = tamaño;
-    }
-
-    public int getTamaño() {
-        return tamaño;
-    }
-
     public void setExtension(String extension) {
         this.extension = extension;
     }
@@ -59,4 +45,34 @@ public class Item implements Serializable {
     public boolean isCarpeta() {
         return carpeta;
     }
+
+  public void setFechaModificacion(String fechaModificacion)
+  {
+    this.fechaModificacion = fechaModificacion;
+  }
+
+  public String getFechaModificacion()
+  {
+    return fechaModificacion;
+  }
+
+  public void setSize(String size)
+  {
+    this.size = size;
+  }
+
+  public String getSize()
+  {
+    return size;
+  }
+
+  public void setPathCompleto(String pathCompleto)
+  {
+    this.pathCompleto = pathCompleto;
+  }
+
+  public String getPathCompleto()
+  {
+    return pathCompleto;
+  }
 }
