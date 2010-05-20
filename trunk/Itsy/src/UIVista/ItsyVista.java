@@ -1,5 +1,7 @@
 package UIVista;
 
+import FullTextSearch.FileIndexer;
+
 import ItsyL.CACliente;
 
 import java.awt.BorderLayout;
@@ -54,6 +56,7 @@ public class ItsyVista extends JFrame {
     private JButton btnBusquedaCarpeta = new JButton();
     private JLabel vacio = new JLabel();
 
+    public static File file;
 
     public ItsyVista() {
         try {
@@ -246,9 +249,11 @@ public class ItsyVista extends JFrame {
         
         CACliente cliente = new CACliente ();
         
-        cliente.escribirXML(pPath, "cliente1.xml");
+        file = cliente.escribirXML(pPath, "cliente1.xml");
         
-        //Metodo para transferir por socket pendiente 
+        FileIndexer fi = FileIndexer.getInstance();
+        
+        fi.init(pPath);
         
         JOptionPane.showMessageDialog(null, "Archivo Transferido Correctamente");
         

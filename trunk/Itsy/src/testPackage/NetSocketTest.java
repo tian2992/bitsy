@@ -13,7 +13,7 @@ public class NetSocketTest {
     public static void main(String args[]) throws Exception{
         NetworkController n = NetworkController.getInstance();
         System.out.println(InetAddress.getLocalHost().getCanonicalHostName());
-        n.init("localhost",1992);
+        n.init("localhost",6148);
         //el objeto NetWorkControllerThread hace el trabajo
     }
 }

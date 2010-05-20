@@ -13,7 +13,7 @@ public class ControlDeClientes
 
     //datos.LecturaXML("C:\\Users\\Black Empires\\Desktop\\edd.txt");
 
-    System.out.println("Lectura exitosa");
+    //System.out.println("Lectura exitosa");
 
   }
   ManejoXML datos = new ManejoXML();
@@ -25,7 +25,7 @@ public class ControlDeClientes
     
     
     /**
-   * Rellenar la Linked List desde la clase "Server" que será la encargada de decir quien
+   * Rellenar la Linked List desde la clase "Server" que serï¿½ la encargada de decir quien
    * esta online y quien offline y dira cuando hay un usuario nuevo :P
    * @param pUsuario
    */

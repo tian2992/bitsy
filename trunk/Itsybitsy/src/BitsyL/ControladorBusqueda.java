@@ -9,13 +9,16 @@ import listaEnlazada.*;
 public class ControladorBusqueda implements Serializable {
 
     NetworkController netCon;
+    ArbolUpdaterThread aUpdate;
+    volatile static ArbolB<String,ListaEnlazada<Item>> arbolDatos; //para evitar que hayan clavos con los thread
+    
     public ControladorBusqueda() {
         super();
         netCon = NetworkController.getInstance();
         netCon.init();
+        aUpdate = new ArbolUpdaterThread(arbolDatos);
+        aUpdate.start();
     }
-    
-    volatile static ArbolB<String,ListaEnlazada<Item>> arbolDatos; //para evitar que hayan clavos con los thread
     
     /**
      * Busca

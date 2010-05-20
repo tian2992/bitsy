@@ -1,5 +1,7 @@
 package ItsyL;
 
+import UIVista.ItsyVista;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -48,8 +50,8 @@ public class NetworkControllerThread extends Thread {
             while (!(inputLine = in.readLine()).equals("bye")) {
                 System.out.println(inputLine);
                 if (inputLine.equals("dameIndice")){
-                    //TODO: agregar archivo a enviar
-                    File f = new File("/tmp/tompo.txt"); //aca debe ir el archivo xml a enviar
+                    //File f = new File("/tmp/blagg.txt");
+                    File f = ItsyVista.file; //aca debe ir el archivo xml a enviar
                     sendFile(f);
                     out.println("listo");
                 } //fin dameIndice
