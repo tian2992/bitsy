@@ -4,7 +4,8 @@
     -->
     
     <%
-        java.util.List<BitsyL.Item> lista = controlador.buscar("txt", false, null, null);
+        out.println();
+        java.util.List<BitsyL.Item> lista = controlador.buscar("build", false, null, null);
     
     %>
 

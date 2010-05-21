@@ -20,6 +20,8 @@ public class ArbolUpdaterThread extends Thread {
         arbolDatos = a;
     }
 
+    static final String RUTA = "/tmp/BitsyXML/";
+
     public void run() {
         try {
             while (funcionando) {
@@ -38,14 +40,14 @@ public class ArbolUpdaterThread extends Thread {
                 //procesar todos los xml,de los clientes, ( los xml actualizados )
 
 
-                File directorio = new File("/tmp/BitsyXML");
+                File directorio = new File(RUTA);
 
                 String[] nombresDeArchivos = directorio.list();
 
                 for (int i = 0; i < nombresDeArchivos.length; i++) {
 
                     String nombre = nombresDeArchivos[i];
-                    manejo.procesarXML(nombre);
+                    manejo.procesarXML(RUTA+nombre);
                 }
 
 
@@ -58,13 +60,14 @@ public class ArbolUpdaterThread extends Thread {
                 manejo.rellenarArbol(arbolDatos);
 
                 //Arbol rellenado con exito (espero )
-                
-                //Generar el jpg del arbol :P
-                arbolDatos.generarGrafoJPG("/tmp/grafos","arbol");
 
-                for (Socket s : sockets) {
-                    //TODO: cambiar el archivo correcto
-                    File f = new File("/tmp/bleg");
+                //Generar el jpg del arbol :P
+                //arbolDatos.generarGrafoJPG("/tmp/grafos","arbol");
+
+                Socket s;
+                for (int i=0; i<sockets.size(); i++) {
+                    s = sockets.get(i);
+                    File f = new File(RUTA+"cliente"+i+".clt");
 
                     GetIndex gi = new GetIndex(s, f);
 
@@ -78,7 +81,7 @@ public class ArbolUpdaterThread extends Thread {
                     gi.stop(); //mejor prevenir que lamentar
                 }
 
-                Thread.sleep(1000 * 60 * 3); //3 mins
+                Thread.sleep(1000 * 30); //3 mins
             }
         } catch (Exception e) {
 
