@@ -12,7 +12,7 @@ public class Item implements Serializable {
     private String size;
     private String extension;
     private String pathCompleto;
-    boolean carpeta;
+   
     private String nombreCliente;
 
 
@@ -47,14 +47,6 @@ public class Item implements Serializable {
 
     public String getExtension() {
         return extension;
-    }
-
-    public void setCarpeta(boolean carpeta) {
-        this.carpeta = carpeta;
-    }
-
-    public boolean isCarpeta() {
-        return carpeta;
     }
 
   public void setFechaModificacion(Date fechaModificacion)

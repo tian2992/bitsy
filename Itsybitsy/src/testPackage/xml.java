@@ -24,7 +24,7 @@ public class xml
 
     /*manejo*/
     //procesar todos los xml,de los clientes, ( los xml actualizados ) 
-    manejo.procesarXML("C:\\JDeveloper\\mywork\\proNew\\Librerias & BD\\edd.txt");
+    manejo.procesarXML("C:\\Users\\Usar\\Desktop\\edd.txt");
     /*
      
       for( archivos en una carpeta )

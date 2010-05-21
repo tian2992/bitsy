@@ -11,9 +11,7 @@ public class ControlDeClientes
   public ControlDeClientes()
   {
 
-    //datos.LecturaXML("C:\\Users\\Black Empires\\Desktop\\edd.txt");
-
-    //System.out.println("Lectura exitosa");
+    
 
   }
   ManejoXML datos = new ManejoXML();
