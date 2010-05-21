@@ -58,6 +58,9 @@ public class ArbolUpdaterThread extends Thread {
                 manejo.rellenarArbol(arbolDatos);
 
                 //Arbol rellenado con exito (espero )
+                
+                //Generar el jpg del arbol :P
+                arbolDatos.generarGrafoJPG("/tmp/grafos","arbol");
 
                 for (Socket s : sockets) {
                     //TODO: cambiar el archivo correcto

@@ -1,6 +1,6 @@
 package BitsyL;
 
-import arbolB.ArbolB;
+import arbolB.*;
 
 import java.io.*;
 
