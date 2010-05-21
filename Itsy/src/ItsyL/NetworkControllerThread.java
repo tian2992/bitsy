@@ -76,7 +76,7 @@ public class NetworkControllerThread extends Thread {
                     sendFile(f);
                     out.println("listo");
                 } // fin dameArchivo
-          else  if (inputLine.equals("buscaArchivo")){
+                if (inputLine.equals("buscaArchivo")){
                     inputLine = in.readLine();
                     
                     out.println("inicioEnvio");

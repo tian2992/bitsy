@@ -6,33 +6,20 @@ import java.io.FileOutputStream;
 
 import java.net.Socket;
 
-public class GetIndex extends NetWorkControllerThread {
+public class GetFile  extends NetWorkControllerThread {
     
-    File index;
-
-    /**
-     * Crea GI con la string del objetivo
-     * @param sSock
-     * @param sTring
-     */
-    public GetIndex(Socket sSock, String sTring){
-        super(sSock);
-        index = new File(sTring);
-    }
+    File file;
+    String fileName;
     
-    /**
-     *Crea un GI con string y el archivo donde meter el resultado
-     * @param sSock
-     * @param f
-     */
-    public GetIndex(Socket sSock, File f){
+    public GetFile(Socket sSock, File f, String name){
         super(sSock);
-        index = f;
+        file = f;
+        fileName = name;
     }
     
     public void run(){
         init();
-        index = pedirIndice(index);
+        pedirIndice(file);
         end();
     }
 
@@ -41,8 +28,10 @@ public class GetIndex extends NetWorkControllerThread {
 
         try {
             BufferedOutputStream bos;
-            out.println("dameIndice");
-            System.out.println("dameIndice");
+            out.println("dameArchivo");
+            System.out.println("dameArchivo");
+            out.println(fileName);
+            System.out.println(fileName);
             Thread.sleep(DELAY);
             inputLine = in.readLine();
             while (!inputLine.equals("inicioEnvio")&&!inputLine.equals("error")){ //consumimos las lineas hasta que inicie envio
@@ -92,7 +81,7 @@ public class GetIndex extends NetWorkControllerThread {
         return f;
     }
 
-    public File getIndex() {
-        return index;
+    public File getFile() {
+        return file;
     }
 }

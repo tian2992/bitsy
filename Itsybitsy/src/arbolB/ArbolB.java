@@ -256,6 +256,7 @@ public class ArbolB<K, V> implements java.util.Map<K, V>,
         try {
             return search((K)key);
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }

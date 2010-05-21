@@ -1,7 +1,7 @@
 <%@ page import="LogicaBaseDeDatos.*" %>
 <%@ page import="java.text.*" %>
 <%@ page import="java.util.*" %>
-
+<jsp:useBean id="usuario" class="LogicaBaseDeDatos.Usuario" scope="session"/>
 <%  
     
     
@@ -89,7 +89,10 @@
 
             admon.agregarUsuario(user, rawPass, nombres, apellidos, fechanac);
 
-            session.setAttribute("Mensaje", "Usuario " + user + " registrado con exito");
+            %>
+            <jsp:setProperty property="username" name="usuario" value="user"/>
+            
+            <%
 
             response.sendRedirect("index.jsp");
             

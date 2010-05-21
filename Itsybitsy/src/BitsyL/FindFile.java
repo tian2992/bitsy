@@ -27,28 +27,27 @@ public class FindFile extends NetWorkControllerThread {
     public ListaEnlazada<Item> fetchList(String s){
         String inputLine;
         try {
-            out.println("dameIndice");
+            out.println("buscaArchivo");
+            System.out.println("buscaArchivo");
             Thread.sleep(DELAY);
             inputLine = in.readLine();
-            while (!inputLine.equals("inicioEnvio")&&!inputLine.equals("error")){ //consumimos las lineas hasta que inicie envio
+            while (!inputLine.equals("inicioEnvio")){ //consumimos las lineas hasta que inicie envio
                 inputLine = in.readLine();
-            }
-            //algo fallo
-            if (inputLine.equals("error")){
-                return lis;
             }
             
             Item i;
             
-            while (!inputLine.equals("listo")){ 
+            do { 
                 i = new Item();
                 inputLine = in.readLine(); // jalamos el nombre
                 i.setNombre(inputLine);
+                System.out.println("nombre:"+inputLine);
                 inputLine = in.readLine();
                 i.setPathCompleto(inputLine);
+                System.out.println("path:"+inputLine);
                 i.setNombreCliente(socket.getInetAddress().getHostName());
                 lis.add(i);
-            }
+            } while (!(inputLine.equals("listo")));
             
             
         } 
