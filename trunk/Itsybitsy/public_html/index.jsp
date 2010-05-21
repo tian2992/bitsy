@@ -1,70 +1,44 @@
 <%@ include file="standardHeader.jspf" %>
-<%@ page import="LogicaBaseDeDatos.*"%>
 
-
-<% 
-
-if( application.getAttribute("Seguridad") == null )
-  {
-      //Encargado de verificar la autenticidad de un Usuario e inicializar el Sistema
-    AdministradorSeguridad admon = new AdministradorSeguridad();    
-      
-    application.setAttribute("Seguridad", admon);
-    
-  }
+  <h1>Bienvenido a Bitsy</h1>
+  <div class="clear span-18">
   
-%>
-
-<%
-//Cambiar la pestaña , si ya inicio sesion, que la pestaña diga cerrar session
-    if( session.getAttribute("Logged") != null )
-     {    
-     out.print("<td><div class= \"navigation\"><a href=\"cerrarSesion.jsp\" class= \"main_link\" >Cerrar Sesion</a></div></td>" );   
-     } 
-      else //viceversa
-     {      
-      out.print("<td><div class= \"navigation\"><a href=\"login.jsp\" class= \"main_link\" >Iniciar Sesion</a></div></td>" );    
-    %>
-
-<%
-if (session.getAttribute("admin")!=null){
-
-%>
- //Aqui se muestra el menu exclusivo que tendra el administrador
-
-<%
-} if (session.getAttribute("user")!=null){
-
- out.print( "<b><font color=\"white\"> "+ "Bienvenido  " + session.getAttribute("user").toString() + "</font></b>");
-%>
-
-//Aqui se muestra el menu exclusivo para los usuarios (registrados) como el permitir bajar archivo :P
-
-<%
-}
-%>
-
-<% 
-if (session.getAttribute("admin")==null || session.getAttribute("user")== null){
-
-%>
-//Aqui se muestra el menu para los usuarios que no estan "logeados"
- 
-<%
-}
-%>
-
-
-       HOLA SOY EL INDEX 
-      <%
-   //Este es el encargado de mostrar el atributo de session mensaje, es decir
-   //muestra los mensajes (correspondientes) en la pagina index.
-   if( session.getAttribute("Mensaje") != null )
-   {          
-     out.print(session.getAttribute("Mensaje").toString()); 
-     session.removeAttribute("Mensaje"); 
+  <%
+    String error      = request.getParameter("error");
+    String autorizado = request.getParameter("autorizado");
+  %>
+  
+    <% if (error!=null) {  %>
+        <div class="span-16 prepend-1 append-1 last" id="mensajes">
+            <div class="error">
+            Ocurrio un <strong>error</strong> en la operacion anterior.
+            </div>
+        </div>
+    <% } %>
     
-   }   
-   
-   %>
-   <%@ include file="standardFooter.jspf" %>
+    <div class="clear span-16 prepend-1 append-1 last" id="contenido">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim felis, sed vulputate elit. Ut massa mauris, dapibus nec dictum eu, viverra eu nulla. Pellentesque eleifend euismod posuere. Fusce posuere massa eu urna pulvinar consequat. Sed posuere orci et eros vehicula ullamcorper. Etiam euismod porta blandit. Cras at tortor lectus. Maecenas felis quam, ullamcorper quis faucibus eu, ornare nec ipsum. Phasellus lorem ipsum, gravida ac sagittis sed, porta sit amet nunc. Phasellus eros nulla, hendrerit id gravida non, blandit id leo. Morbi vel orci metus, sed egestas tortor. Sed convallis, metus ut vulputate sagittis, dui odio mattis erat, in tincidunt tortor diam ac arcu.</p>
+
+    Blah, insertar form busqueda
+    
+    </div>
+  </div>
+  <div class="span-6 last" id="sidebar">
+    <div class="span-4 prepend-1 append-1 last" id="sidebar-contenido">
+    <% if (!(usuario.isValido())) { %>
+      <h2>Login</h2>
+        <form id="loginForm" name="loginForm" method="POST" action="doLogin.jsp">
+            <label for="username">Usuario:</label> <br /> <input class="text" type="text" name="username" size="10" /><br/>
+            <label for="password">Password:</label> <br /> <input class="text" type="password" name="password" size="10" /><br/>
+            <input type="submit" value="Login" />
+        </form>
+        
+        <a href="registroUsuario.jsp">Si no tienes cuenta, registrate</a>
+        
+    <% } else { %>    
+    <h2>Bienvenido <%= usuario.getUsername() %></h2>
+    <% } %>
+    </div>
+  </div>
+
+<%@ include file="standardFooter.jspf" %>
