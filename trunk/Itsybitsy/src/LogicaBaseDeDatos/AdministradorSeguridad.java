@@ -9,6 +9,24 @@ public class AdministradorSeguridad {
     public AdministradorSeguridad() {
 
     }
+    
+    /**
+     *Verifica si el usuario es de tipo Administrador
+     * @param pUsuario
+     * @param pcontrasenya
+     * @return true or false
+     */
+    public boolean esAdministrador(String pUsuario, String pcontrasenya) {
+
+          if (pUsuario.equals("admon@administrador.com") && pcontrasenya.equals("admonadmon")) {
+
+              return true;
+
+          }
+
+          return false;
+      }
+
 
     /** Obtener el id del usuario, a partir del correo (usuario)
      *
@@ -63,7 +81,7 @@ public class AdministradorSeguridad {
 
             if (conn != null) { 
 
-                System.out.println("Conexi�n satisfactoria");
+                System.out.println("Conexion satisfactoria");
 
                 Statement st = conn.createStatement();
 

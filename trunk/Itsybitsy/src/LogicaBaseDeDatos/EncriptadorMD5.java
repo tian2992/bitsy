@@ -34,7 +34,7 @@ public class EncriptadorMD5 {
   }
 
   public static String MD5(String text) {
-    text += "chicharrones" ; //aÃ±ado la sal al encriptador
+    text += "chicharrones" ; //añado la sal al encriptador chicharrones con tocino con muuucha grasa wajaja
     try {
       MessageDigest md;
       md = MessageDigest.getInstance("MD5");
