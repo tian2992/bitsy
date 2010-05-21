@@ -1,8 +1,12 @@
 package BitsyL;
 
+import arbolB.ArbolB;
+
 import java.io.*;
 
 import java.util.*;
+
+import listaEnlazada.ListaEnlazada;
 
 import org.jdom.*;
 import org.jdom.input.*;
@@ -12,11 +16,45 @@ public class ManejoXML {
 
     private LinkedList<String> mPath = new LinkedList<String>();
     
-    private LinkedList<Item> mListaDeItems = new LinkedList<Item>();
+    //private ListaEnlazada<Item> mListaDeItems = new ListaEnlazada<Item>();
 
     private DatosCliente user = new DatosCliente();    
     
     private Item item = null;
+    
+    private Hashtable<String, ListaEnlazada<Item>> TablaArbol = new Hashtable<String, ListaEnlazada<Item>> ();
+    
+    public void rellenarArbol( ArbolB<String,ListaEnlazada<Item>> pArbol )
+    {
+     
+      Iterator<String> llaves = TablaArbol.keySet().iterator();
+      
+      while( llaves.hasNext() )
+      {
+        
+        String llave = llaves.next();
+        
+        ListaEnlazada<Item> lista = TablaArbol.get(llave);
+        
+        pArbol.insert(llave, lista);
+        
+      }
+      
+    }
+    
+    private void agregarATabla( String pNombreDeArchivo, Item pItem )
+    {
+      if( TablaArbol.containsKey(pNombreDeArchivo))
+      {
+        ListaEnlazada<Item> items = TablaArbol.get(pNombreDeArchivo);
+        items.add(pItem);
+      } else        
+      {
+        ListaEnlazada<Item> items = new ListaEnlazada<Item>();
+        items.add(pItem);
+        TablaArbol.put(pNombreDeArchivo, items);
+      }
+    }
     
     private String getPath() {
         StringBuilder b = new StringBuilder();
@@ -129,9 +167,12 @@ public class ManejoXML {
         item.setSize(za.getAttributeValue("size"));
         item.setFechaModificacion(za.getAttributeValue("fecha_modificacion"));
         item.setExtension(za.getAttributeValue("extension"));
-        
-        mListaDeItems.add(item);
-         item.setPathCompleto( getPath() ) ;
+        item.setPathCompleto( getPath() ) ;
+        item.setNombreCliente( user.getId() );
+        //mListaDeItems.add(item);
+         
+        this.agregarATabla(za.getAttributeValue("nombre"), item);         
+         
         
     }
     
@@ -391,8 +432,17 @@ public class ManejoXML {
     public String getNombreDelXML() {
         return nombreDelXML;
     }*/
-    
-    
+
+
+  public void setTablaArbol(Hashtable<String, ListaEnlazada<Item>> TablaArbol)
+  {
+    this.TablaArbol = TablaArbol;
+  }
+
+  public Hashtable<String, ListaEnlazada<Item>> getTablaArbol()
+  {
+    return TablaArbol;
+  }
 }
 
 
