@@ -15,6 +15,9 @@ public class Item implements Serializable {
    
     private String nombreCliente;
 
+    public String getFullPath() {
+        return nombreCliente + ":///" + pathCompleto + "/" + nombre ;
+    }
 
     public Item() {
         super();

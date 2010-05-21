@@ -23,8 +23,16 @@ public class xml
     ManejoXML manejo = new ManejoXML();
 
     /*manejo*/
-    //procesar todos los xml,de los clientes, ( los xml actualizados ) 
-    manejo.procesarXML("C:\\Users\\Usar\\Desktop\\edd.txt");
+    //procesar todos los xml,de los clientes, ( los xml actualizados )
+    
+    
+    
+    manejo.procesarXML("/tmp/BitsyXML/clienteprueba.clt");
+    
+    ControladorBusqueda control = new ControladorBusqueda();
+    
+    
+ 
     /*
      
       for( archivos en una carpeta )
@@ -46,9 +54,35 @@ public class xml
 
 
     //hacer que el arbol, sea rellenado por la clase ManejoXML con los datos extraidos de todos los XML procesados
-    manejo.rellenarArbol(arbolDatos);
+    //manejo.rellenarArbol(arbolDatos);
 
 
+    //control.setArbolDatos(arbolDatos);
+    
+  //  arbolDatos = control.getArbolDatos();
+    
+  //  System.out.println(arbolDatos.toDot());
+    
+   // arbolDatos.generarGrafoJPG("/tmp/","grafo");
+      
+      boolean repetir = true; 
+      while(  repetir  ) { 
+          
+    
+              try {
+                  
+                      ListaEnlazada<Item> res = (ListaEnlazada<Item>) control.buscar("Keyword.java", true, null, null);
+                      
+                      Item result = res.get(0);
+                  
+                      System.out.println(" numero de resultados " + result.toString() );
+                  } catch (Exception e) {
+                      // TODO: Add catch code
+                      e.printStackTrace();
+                  }
+              
+          
+          repetir = true;  }
     //debug only, not working due to poor toString method in class BTreee :( 
     System.out.println(arbolDatos);
     

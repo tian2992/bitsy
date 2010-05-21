@@ -186,7 +186,7 @@ public class ManejoXML {
         //mListaDeItems.add(item);
 
         this.agregarATabla(za.getAttributeValue("nombre"), item);
-
+        System.out.println(za.getAttribute("nombre"));
 
     }
 

@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import java.net.Socket;
+
 import java.util.Random;
 
 import javax.servlet.*;
@@ -35,13 +37,23 @@ public class downloader extends HttpServlet {
         
         NetworkController n = NetworkController.getInstance();
         
-        GetIndex gi = new GetIndex(n.getSockets().get(pcNumber), new File("/tmp/"+r.nextInt(20)));
+        File f = File.createTempFile("bitSy", ".tamp");
+        
+        Socket s = n.getSockets().get(pcNumber);
+        
+        if (s == null){
+            out.close();
+            return;
+        }
+        
+        GetIndex gi = new GetIndex(s ,f);
         
         gi.start();
         
         try {gi.join(); } catch (Exception e) {e.printStackTrace();}
         
-        File f = gi.getIndex();
+        f = gi.getIndex();
+        
         FileInputStream fo = new FileInputStream(f);
         int i;
         while ((i=fo.read())!=-1){
