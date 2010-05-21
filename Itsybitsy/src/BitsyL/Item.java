@@ -8,7 +8,7 @@ import java.util.Date;
 public class Item implements Serializable {
 
     private String nombre;
-    private String fechaModificacion;
+    private Date fechaModificacion;
     private String size;
     private String extension;
     private String pathCompleto;
@@ -57,12 +57,12 @@ public class Item implements Serializable {
         return carpeta;
     }
 
-  public void setFechaModificacion(String fechaModificacion)
+  public void setFechaModificacion(Date fechaModificacion)
   {
     this.fechaModificacion = fechaModificacion;
   }
 
-  public String getFechaModificacion()
+  public Date getFechaModificacion()
   {
     return fechaModificacion;
   }
