@@ -4,6 +4,8 @@ import FullTextSearch.FileIndexer;
 
 import ItsyL.CACliente;
 
+import ItsyL.NetworkController;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -20,6 +22,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.InputStream;
 
+import java.net.InetAddress;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -57,6 +60,8 @@ public class ItsyVista extends JFrame {
     private JLabel vacio = new JLabel();
 
     public static File file;
+    private JTextField jTextField1 = new JTextField();
+    private JTextField jTextField2 = new JTextField();
 
     public ItsyVista() {
         try {
@@ -83,6 +88,7 @@ public class ItsyVista extends JFrame {
 
         FIngreso.setSize(new Dimension(1042, 65));
 
+        FIngreso.setBounds(new Rectangle(0, 0, 1040, 280));
         instrucciones.setText("Ingrese el path de la carpeta que desea compartir:  ");
         instrucciones.setFont(new Font("Gill Sans MT", 0, 14));
 
@@ -213,18 +219,19 @@ public class ItsyVista extends JFrame {
         FIngreso.add(instrucciones, null);
         FIngreso.add(ingresoDireccion, null);
         FIngreso.add(btnBusquedaCarpeta,null);
-        
-        Animacion.add(lbIp,null);
-        Animacion.add(vacio,null);
-        Animacion.add(lbHost,null);
-        Animacion.add(btnTransferir,null);
-        
-    
+
+        FIngreso.add(jTextField1, null);
+        Animacion.add(lbIp, null);
+        Animacion.add(vacio, null);
+        Animacion.add(lbHost, null);
+        Animacion.add(btnTransferir, null);
+
+
         this.getContentPane().add(FPrincipal, null);
         FPrincipal.add(toolBar, null);
         FPrincipal.add(FIngreso, null);
-        FPrincipal.add(Animacion,null);
-        
+        FPrincipal.add(Animacion, null);
+
         this.setResizable(false);
     }
 
@@ -239,35 +246,63 @@ public class ItsyVista extends JFrame {
         ingresoDireccion.cut();
     }
 
-    private void btnCompartir_actionPerformed(ActionEvent e) {     
+    boolean iniciado = false;
+    NetworkController n;
+    private void btnCompartir_actionPerformed(ActionEvent e) {
         
-        if (ingresoDireccion.getText()!=null && ingresoDireccion.getText().length() != 0) {
-       
-        btnTransferir.setVisible(true);
-        
-        String pPath = ingresoDireccion.getText();
-        
-        CACliente cliente = new CACliente ();
-        
-        file = cliente.escribirXML(pPath, "cliente1.xml");
-        
-        FileIndexer fi = FileIndexer.getInstance();
-        
-        fi.init(pPath);
-        
-        JOptionPane.showMessageDialog(null, "Archivo Transferido Correctamente");
-        
-        lbIp.setText("Nombre del Equipo: "+cliente.getPHost());
-        vacio.setText("");
-        lbHost.setText("Direccion IP: "+cliente.getPIp());
-        
-        btnTransferir.setVisible(false);
-        
-        }else{
+        if (iniciado){
+            n.stop();
+        } else {
             
-            JOptionPane.showMessageDialog(null, "Ingrese una direcci�n en el cuadro de texto");
-        }
+            if (ingresoDireccion.getText()!=null && ingresoDireccion.getText().length() != 0) {
+           
+            btnTransferir.setVisible(true);
+            
+            String pPath = ingresoDireccion.getText();
+            
+            CACliente cliente = new CACliente ();
+            
+            file = cliente.escribirXML(pPath, "cliente1.xml");
+            
+            FileIndexer fi = FileIndexer.getInstance();
+            
+            fi.init(pPath);
+            
+            //JOptionPane.showMessageDialog(null, "Archivo Transferido Correctamente");
         
+            String host = "";
+            while (host.equals("")){
+            host = JOptionPane.showInputDialog(null, "Cual es el host a conectarse",
+                                                "Ingresa el host",
+                                                JOptionPane.QUESTION_MESSAGE);
+            }
+            int port = 0;
+            
+            while (!(port > 1024)){
+                try {
+                port = Integer.parseInt(JOptionPane.showInputDialog(null, "Cual es el puerto de conexion",
+                                                "Ingresa el puerto",
+                                                JOptionPane.QUESTION_MESSAGE));
+                } catch (Exception esp){
+                    esp.printStackTrace();
+                }
+            }
+            
+            n = NetworkController.getInstance();
+            n.init(host,port);
+            
+            
+            lbIp.setText("Nombre del Equipo: "+cliente.getPHost());
+            vacio.setText("");
+            lbHost.setText("Direccion IP: "+cliente.getPIp());
+            
+            btnTransferir.setVisible(false);
+            
+            }else{
+                
+                JOptionPane.showMessageDialog(null, "Ingrese una direcci�n en el cuadro de texto");
+            }
+        }
     }
 
     private void btnCopiar_actionPerformed(ActionEvent e) {
