@@ -113,6 +113,29 @@ public class ListaEnlazada<E> implements java.util.List<E>, java.io.Serializable
     public Iterator<E> iterator() {
         return new Yterbio(this);
     }
+    
+    public String toString()
+    {
+      Iterator<E> temp = iterator();
+      
+      
+      StringBuilder b = new StringBuilder();
+      
+      b.append("Lista Enlazada[");
+      
+      while( temp.hasNext() )
+      {
+        E item = temp.next();
+        b.append( item.toString() );
+        if( temp.hasNext() )
+        {
+          b.append(",");
+        }
+      }
+      b.append("]");
+      
+      return b.toString();
+    }
 
     /**
      *

@@ -13,12 +13,23 @@ public class Item implements Serializable {
     private String extension;
     private String pathCompleto;
     boolean carpeta;
+    private String nombreCliente;
 
 
     public Item() {
         super();
     }
 
+  public String toString()
+  {
+    StringBuilder b = new StringBuilder();
+    b.append("ITEM[");
+    b.append("Nombre:" + nombre);
+    b.append(", Cliente:" + nombreCliente );
+    b.append(", pathCompleto:" + pathCompleto);
+    b.append("]");
+    return b.toString();
+  }
 
     //Setters y Getters Automatico
 
@@ -74,5 +85,15 @@ public class Item implements Serializable {
   public String getPathCompleto()
   {
     return pathCompleto;
+  }
+
+  public void setNombreCliente(String nombreCliente)
+  {
+    this.nombreCliente = nombreCliente;
+  }
+
+  public String getNombreCliente()
+  {
+    return nombreCliente;
   }
 }
