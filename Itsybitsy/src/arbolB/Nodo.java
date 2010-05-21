@@ -16,6 +16,30 @@ public class Nodo<K,V> {
         return "Nodo" + this.hashCode();
     }
 
+    public String toDot(  )  {
+            
+            StringBuilder b = new StringBuilder();
+            
+            b.append( getDotName() );
+            b.append("[label=\"<P0>");
+            for( int i = 0; i < mB; i++ ) {
+                b.append( "|" +  mLlaves[i].toString() );
+                b.append( "|<P" + (i+1) + ">" );                
+            }
+            
+            b.append("\"];\n");
+            
+            for( int i = 0; i <= mB ; i++ ) {
+                if( mPunteros[i] != null )   {
+                    b.append( mPunteros[i].toDot() );
+                    b.append( getDotName() + ":P" + i + " -> " + mPunteros[i].getDotName() + ";\n" );
+                }
+            }
+            
+            return b.toString();
+            
+        }
+
 
     public Nodo(int pK) {
         this.mK = pK;

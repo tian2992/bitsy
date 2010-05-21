@@ -2,22 +2,92 @@ package arbolB;
 
 //import java.util.Map;
 
+import java.io.File;
+
+import java.io.FileWriter;
+
 import java.util.Collection;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
 
+public class ArbolB<K, V> implements java.util.Map<K, V>,
+                                     java.io.Serializable {
 
-public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
-{
-
-    private Nodo<K,V> mRaiz = null;
+    private Nodo<K, V> mRaiz = null;
     private int mK = 2;
     private int mAltura = 0;
     private int tama = 0;
 
     java.util.Comparator comparador = new Comparator();
+
+    public void generarGrafoJPG(String pCarpeta, String pNombre) {
+
+        String codigo = this.toDot();
+
+        String nombreTxt = pCarpeta + File.separator + pNombre + ".txt";
+
+        File salida = new File(nombreTxt);
+
+        System.out.println("Localizacion del archivo temporal: ");
+        System.out.println(salida.getAbsolutePath());
+
+        try {
+
+            FileWriter fw = new FileWriter(salida);
+
+            fw.write(codigo);
+
+            fw.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+
+            String dotPath = "dot";
+
+            String fileInputPath = salida.getAbsolutePath();
+            String fileOutputPath =
+                salida.getAbsolutePath().replace("txt", "jpg");
+
+            String tParam = "-Tjpg";
+            String tOParam = "-o";
+
+            String[] cmd = new String[5];
+            cmd[0] = dotPath;
+            cmd[1] = tParam;
+            cmd[2] = fileInputPath;
+            cmd[3] = tOParam;
+            cmd[4] = fileOutputPath;
+
+            Runtime rt = Runtime.getRuntime();
+
+            rt.exec(cmd);
+
+            Thread.sleep(600L); //darle un tiempito a dot para generar el jpg
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+        }
+    }
+
+    public String toDot() {
+        StringBuilder b = new StringBuilder();
+
+        b.append("digraph g { \n node [shape=record];\n");
+
+        b.append(mRaiz.toDot());
+
+        b.append("}");
+
+        return b.toString();
+    }
 
     public ArbolB() {
     }
@@ -35,7 +105,7 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
     public void insert(K key, V obj) {
         tama++;
         if (this.mAltura == 0) {
-            this.mRaiz = new Nodo<K,V>(this.mK, key, obj);
+            this.mRaiz = new Nodo<K, V>(this.mK, key, obj);
             this.mAltura = 1;
             return;
         }
@@ -47,7 +117,8 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
 
             Nodo ptr = this.mRaiz;
 
-            this.mRaiz = new Nodo<K,V>(this.mK, (K)splitted.getLlave(), (V)splitted.getDato());
+            this.mRaiz =
+                    new Nodo<K, V>(this.mK, (K)splitted.getLlave(), (V)splitted.getDato());
             this.mRaiz.mPunteros[0] = ptr;
             this.mRaiz.mPunteros[1] = splitted.getPuntero();
             this.mAltura++;
@@ -62,13 +133,14 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
         int i = 0;
 
         //while ((i < node.mB) && (key.mayorQue(node.mLlaves[i])))
-        while ((i<node.mB) && (comparador.compare(key,node.mLlaves[i]) > 0)){
-          i++;
+        while ((i < node.mB) &&
+               (comparador.compare(key, node.mLlaves[i]) > 0)) {
+            i++;
         }
 
         //if ((i < node.mB) && key.igualA(node.mLlaves[i])) {
 
-        if ((i < node.mB) && (comparador.compare(key,node.mLlaves[i]) == 0)) {
+        if ((i < node.mB) && (comparador.compare(key, node.mLlaves[i]) == 0)) {
             node.mDatos[i] = obj;
             return null;
         }
@@ -88,7 +160,9 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
 
         i = node.mB - 1;
         //while ((i >= 0) && (node.mLlaves[i] == null || key.menorQue(node.mLlaves[i]))) {
-        while ((i >= 0) && (node.mLlaves[i] == null || comparador.compare(key,node.mLlaves[i]) < 0 )) {
+        while ((i >= 0) &&
+               (node.mLlaves[i] == null || comparador.compare(key, node.mLlaves[i]) <
+                0)) {
             node.mLlaves[i + 1] = node.mLlaves[i];
             node.mDatos[i + 1] = node.mDatos[i];
             node.mPunteros[i + 2] = node.mPunteros[i + 1];
@@ -103,7 +177,7 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
 
         if (node.mB > 2 * mK) {
 
-            Nodo newnode = new Nodo<K,V>(this.mK);
+            Nodo newnode = new Nodo<K, V>(this.mK);
             newnode.mPunteros[this.mK] = node.mPunteros[node.mB];
             node.mPunteros[node.mB] = null;
             node.mB = this.mK + 1;
@@ -142,23 +216,24 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
         }
 
         //if (key.menorQue(node.mLlaves[0]))
-        if (comparador.compare(key, node.mLlaves[0]) < 0){
+        if (comparador.compare(key, node.mLlaves[0]) < 0) {
             return search(key, node.mPunteros[0]);
         }
 
         //if (key.mayorQue(node.mLlaves[node.mB - 1]))
-        if (comparador.compare(key,node.mLlaves[node.mB - 1]) > 0) {
+        if (comparador.compare(key, node.mLlaves[node.mB - 1]) > 0) {
             return search(key, node.mPunteros[node.mB]);
         }
 
         int i = 0;
         //while ((i < node.mB - 1) && (key.mayorQue(node.mLlaves[i])))
-        while ((i < node.mB - 1) && (comparador.compare(key,node.mLlaves[i])>0)){
-          i++;
+        while ((i < node.mB - 1) &&
+               (comparador.compare(key, node.mLlaves[i]) > 0)) {
+            i++;
         }
 
         //if (key.igualA(node.mLlaves[i]))
-        if (comparador.compare(key,node.mLlaves[i]) == 0)
+        if (comparador.compare(key, node.mLlaves[i]) == 0)
             return (V)node.mDatos[i];
 
         return search(key, node.mPunteros[i]);
@@ -169,7 +244,7 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
     public int getAltura() {
         return mAltura;
     }
-    
+
     //=================================MAP Classes
 
     public V put(K key, V value) {
@@ -180,8 +255,7 @@ public class ArbolB<K,V> implements java.util.Map<K,V>, java.io.Serializable
     public V get(Object key) {
         try {
             return search((K)key);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }
