@@ -4,6 +4,11 @@ import arbolB.ArbolB;
 
 import java.io.*;
 
+import java.text.DateFormat;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import java.util.*;
 
 import listaEnlazada.ListaEnlazada;
@@ -15,79 +20,75 @@ import org.jdom.output.*;
 public class ManejoXML {
 
     private LinkedList<String> mPath = new LinkedList<String>();
-    
+
     //private ListaEnlazada<Item> mListaDeItems = new ListaEnlazada<Item>();
 
-    private DatosCliente user = new DatosCliente();    
-    
+    private DatosCliente user = new DatosCliente();
+
     private Item item = null;
-    
-    private Hashtable<String, ListaEnlazada<Item>> TablaArbol = new Hashtable<String, ListaEnlazada<Item>> ();
-    
-    public void rellenarArbol( ArbolB<String,ListaEnlazada<Item>> pArbol )
-    {
-     
-      Iterator<String> llaves = TablaArbol.keySet().iterator();
-      
-      while( llaves.hasNext() )
-      {
-        
-        String llave = llaves.next();
-        
-        ListaEnlazada<Item> lista = TablaArbol.get(llave);
-        
-        pArbol.insert(llave, lista);
-        
-      }
-      
+
+    private Hashtable<String, ListaEnlazada<Item>> TablaArbol =
+        new Hashtable<String, ListaEnlazada<Item>>();
+
+    public void rellenarArbol(ArbolB<String, ListaEnlazada<Item>> pArbol) {
+
+        Iterator<String> llaves = TablaArbol.keySet().iterator();
+
+        while (llaves.hasNext()) {
+
+            String llave = llaves.next();
+
+            ListaEnlazada<Item> lista = TablaArbol.get(llave);
+
+            pArbol.insert(llave, lista);
+
+        }
+
     }
-    
-    private void agregarATabla( String pNombreDeArchivo, Item pItem )
-    {
-      if( TablaArbol.containsKey(pNombreDeArchivo))
-      {
-        ListaEnlazada<Item> items = TablaArbol.get(pNombreDeArchivo);
-        items.add(pItem);
-      } else        
-      {
-        ListaEnlazada<Item> items = new ListaEnlazada<Item>();
-        items.add(pItem);
-        TablaArbol.put(pNombreDeArchivo, items);
-      }
+
+    private void agregarATabla(String pNombreDeArchivo, Item pItem) {
+        if (TablaArbol.containsKey(pNombreDeArchivo)) {
+            ListaEnlazada<Item> items = TablaArbol.get(pNombreDeArchivo);
+            items.add(pItem);
+        } else {
+            ListaEnlazada<Item> items = new ListaEnlazada<Item>();
+            items.add(pItem);
+            TablaArbol.put(pNombreDeArchivo, items);
+        }
     }
-    
+
     private String getPath() {
         StringBuilder b = new StringBuilder();
-        for( int i = 0; i < mPath.size(); i++ ) {
-            b.append(mPath.get(i) + "/");         
-            
+        for (int i = 0; i < mPath.size(); i++) {
+            b.append(mPath.get(i) + "/");
+
         }
         return b.toString();
     }
-        
+
     private void quitarUltimo() {
-        if( mPath.size() > 0 ) {
-            mPath.remove( mPath.size() - 1 );
+        if (mPath.size() > 0) {
+            mPath.remove(mPath.size() - 1);
         }
     }
-    
+
     /**
      * carga los xml en el arbol
      *
      * @param pPath es la path de la carpeta donde estan los indices XML de los clientes
      */
-    public void procesarXML( String pPath ) {
-     
-        
+    public void procesarXML(String pPath) {
+
+
         StringBuilder b = new StringBuilder();
-        
+
         try {
             SAXBuilder builder = new SAXBuilder(false);
-            
+
             Document doc = builder.build(pPath);
 
             Element raiz = doc.getRootElement();
-            
+
             b.append("El id de usuario es : ");
             b.append(raiz.getAttributeValue("id") + "\n");
             user.setId(raiz.getAttributeValue("id"));
@@ -98,91 +99,103 @@ public class ManejoXML {
 
             b.append("La carpeta compartida es: ");
             b.append(raiz.getAttributeValue("raiz") + "\n");
-            
+
             mPath.add(raiz.getAttributeValue("raiz"));
-            
+
             System.out.println(b.toString());
-            
-            
+
+
             //Lista de carpetas
             List carpetas = raiz.getChildren("carpeta");
             //System.out.println("Numero de carpetas es: " + carpetas.size());
-            
-            for( int i = 0; i < carpetas.size(); i++ ) {
-                procesarDirectorio( (Element)carpetas.get(i) );
+
+            for (int i = 0; i < carpetas.size(); i++) {
+                procesarDirectorio((Element)carpetas.get(i));
             }
 
             //Lista de Archivos
             List archivos = raiz.getChildren("archivo");
             //System.out.println("Numero de archivos es: " + archivos.size());
-            
-            for( int i = 0; i < archivos.size(); i++ ) {
-                procesarArchivo( (Element) archivos.get(i) );
+
+            for (int i = 0; i < archivos.size(); i++) {
+                procesarArchivo((Element)archivos.get(i));
             }
-            
+
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();
         }
-        
+
     }
-    
-    private void procesarDirectorio( Element pDirectorio ) {
-                
+
+    private void procesarDirectorio(Element pDirectorio) {
+
         List carpetas = pDirectorio.getChildren("carpeta");
-        
+
         String nombreCarpeta = pDirectorio.getAttributeValue("nombre");
 
         mPath.add(nombreCarpeta);
 
         //System.out.println("Numero de carpetas es: " + carpetas.size());
-        
-        for( int i = 0; i < carpetas.size(); i++ ) {
-            procesarDirectorio( (Element)carpetas.get(i) );
+
+        for (int i = 0; i < carpetas.size(); i++) {
+            procesarDirectorio((Element)carpetas.get(i));
         }
-        
+
         //Lista de Archivos
         List archivos = pDirectorio.getChildren("archivo");
         //System.out.println("Numero de archivos es: " + archivos.size());
-        
-        for( int i = 0; i < archivos.size(); i++ ) {
-            procesarArchivo( (Element) archivos.get(i) );
+
+        for (int i = 0; i < archivos.size(); i++) {
+            procesarArchivo((Element)archivos.get(i));
         }
-        
+
         this.quitarUltimo();
-        
+
     }
-    
-    private void procesarArchivo( Element pArchivo ) {
-        
+
+    private void procesarArchivo(Element pArchivo) {
+
         Element za = pArchivo;
 
         //System.out.println("Nombre archivo: " +  za.getAttributeValue("nombre"));
         //System.out.println("Path " + getPath() );
-    
-        System.out.println(getPath() + za.getAttributeValue("nombre") );
+
+        System.out.println(getPath() + za.getAttributeValue("nombre"));
 
         item = new Item();
         item.setNombre(za.getAttributeValue("nombre"));
         item.setSize(za.getAttributeValue("size"));
-        item.setFechaModificacion(za.getAttributeValue("fecha_modificacion"));
+        
+        /**
+         * Convertir fecha a tipo de dato "Date" con formato dd/MM/yyyy
+         */
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            Date cambio = df.parse(za.getAttributeValue("fecha_modificacion"));
+            item.setFechaModificacion(cambio);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+      
         item.setExtension(za.getAttributeValue("extension"));
-        item.setPathCompleto( getPath() ) ;
-        item.setNombreCliente( user.getId() );
+        item.setPathCompleto(getPath());
+        item.setNombreCliente(user.getId());
         //mListaDeItems.add(item);
-         
-        this.agregarATabla(za.getAttributeValue("nombre"), item);         
-         
-        
-    }
-    
-    public ManejoXML() {
-        
-        
-        
+
+        this.agregarATabla(za.getAttributeValue("nombre"), item);
+
+
     }
 
-/*
+    public ManejoXML() {
+
+
+    }
+
+    /*
     StringBuilder b = new StringBuilder();
 
     Item item = null;
@@ -434,15 +447,13 @@ public class ManejoXML {
     }*/
 
 
-  public void setTablaArbol(Hashtable<String, ListaEnlazada<Item>> TablaArbol)
-  {
-    this.TablaArbol = TablaArbol;
-  }
+    public void setTablaArbol(Hashtable<String, ListaEnlazada<Item>> TablaArbol) {
+        this.TablaArbol = TablaArbol;
+    }
 
-  public Hashtable<String, ListaEnlazada<Item>> getTablaArbol()
-  {
-    return TablaArbol;
-  }
+    public Hashtable<String, ListaEnlazada<Item>> getTablaArbol() {
+        return TablaArbol;
+    }
 }
 
 
