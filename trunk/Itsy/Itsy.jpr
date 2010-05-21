@@ -87,6 +87,7 @@
          <string v="JavaBeans"/>
          <string v="Swing/AWT"/>
          <string v="Java"/>
+         <string v="UML"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
