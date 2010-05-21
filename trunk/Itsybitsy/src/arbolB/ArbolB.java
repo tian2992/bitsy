@@ -16,7 +16,7 @@ public class ArbolB<K, V> implements java.util.Map<K, V>,
                                      java.io.Serializable {
 
     private Nodo<K, V> mRaiz = null;
-    private int mK = 2;
+    private int mK = 5;
     private int mAltura = 0;
     private int tama = 0;
 

@@ -23,19 +23,19 @@ public class fileSearcherTest {
     @Before
     public void setUp() throws Exception {
         FileIndexer fi = FileIndexer.getInstance();
-        fi.init("/home/tian/sketches");
+        fi.init("/home/tian/bin/clojure-1.1.0");
     }
 
     @Test
     public void testFileSearch(){
         FileIndexer fi = FileIndexer.getInstance();
         
-        List<Item> listo = fi.buscarQuery("Astaroth");
+        List<Item> listo = fi.buscarQuery("build");
         
         assertNotSame(0,listo.size());
         
         for (Item i: listo){
-            System.out.println(i.getRuta());
+            System.out.println(i.getArchivo().getAbsolutePath());
         }
         
         

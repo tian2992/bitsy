@@ -60,7 +60,7 @@ public class NetworkControllerThread extends Thread {
                     out.println("listo");
                 } //fin dameIndice
                 //Terrible error de seguridad, pero que se le hace...
-           else if (inputLine.equals("dameArchivo")){ //pide archivos a gusto
+                if (inputLine.equals("dameArchivo")){ //pide archivos a gusto
                     inputLine = in.readLine();
                     File f;
                     try {
@@ -78,15 +78,15 @@ public class NetworkControllerThread extends Thread {
                 } // fin dameArchivo
                 if (inputLine.equals("buscaArchivo")){
                     inputLine = in.readLine();
-                    
+                    System.out.println("buscando: "+inputLine);
                     out.println("inicioEnvio");
                     
                     FileIndexer fi = FileIndexer.getInstance();
                     List<Item> listo = fi.buscarQuery(inputLine);
                     
                     for (Item i: listo){
-                        out.println(i.getArchivo().getName());
-                        out.println(i.getRuta());
+                        System.out.println(i.getArchivo().getAbsolutePath());
+                        out.println(i.getArchivo().getAbsolutePath());
                     }
                     
                     out.println("listo");

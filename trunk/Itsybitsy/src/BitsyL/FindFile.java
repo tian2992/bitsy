@@ -28,28 +28,27 @@ public class FindFile extends NetWorkControllerThread {
         String inputLine;
         try {
             out.println("buscaArchivo");
-            System.out.println("buscaArchivo");
-            Thread.sleep(DELAY);
+            System.out.println("buscaArchivo :"+s);
+            out.println(s);
             inputLine = in.readLine();
+            Thread.sleep(DELAY);
             while (!inputLine.equals("inicioEnvio")){ //consumimos las lineas hasta que inicie envio
+                System.out.println(inputLine);
                 inputLine = in.readLine();
+                
             }
-            
+            System.out.println("transfiriendo");
             Item i;
             
             do { 
                 i = new Item();
                 inputLine = in.readLine(); // jalamos el nombre
-                i.setNombre(inputLine);
-                System.out.println("nombre:"+inputLine);
-                inputLine = in.readLine();
                 i.setPathCompleto(inputLine);
                 System.out.println("path:"+inputLine);
-                i.setNombreCliente(socket.getInetAddress().getHostName());
                 lis.add(i);
             } while (!(inputLine.equals("listo")));
             
-            
+            System.out.println("se resulto en "+lis);
         } 
         catch (Exception e){
             e.printStackTrace();

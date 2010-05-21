@@ -14,6 +14,10 @@ public class ControladorBusqueda implements Serializable {
     NetworkController netCon;
     ArbolUpdaterThread aUpdate;
     volatile static ArbolB<String,ListaEnlazada<Item>> arbolDatos; //para evitar que hayan clavos con los thread
+
+    public boolean getIsListo() {
+        return arbolDatos == null ;
+    }
     
     public ControladorBusqueda() {
         super();
@@ -25,7 +29,7 @@ public class ControladorBusqueda implements Serializable {
     
     /**
      * Busca
-     * @param nombre
+     * @param simple si es true es arbol, si es false no lo es
      * @param filtroArchivo
      * @param filtroFecha solo contiene dos fechas o es null, si la primera va despues de la primera, falla.
      * @return
@@ -54,6 +58,9 @@ public class ControladorBusqueda implements Serializable {
         }
         
         ListaEnlazada<Item> listaResultados = arbolDatos.get(nombre);
+
+        System.out.println(listaResultados.size());
+
         ListaEnlazada<Item> lista = new ListaEnlazada<Item>();
         
         //no fue necesiario post procesar
@@ -81,7 +88,7 @@ public class ControladorBusqueda implements Serializable {
             for (Socket s: NetworkController.getInstance().getSockets()){
                 FindFile fin = new FindFile(s,cadena);
                 fin.start();
-                fin.join();
+                fin.join(2000);
                 list.addAll(fin.getLis());
             }
         } catch (Exception e){

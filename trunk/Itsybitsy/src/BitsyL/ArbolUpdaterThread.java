@@ -26,11 +26,30 @@ public class ArbolUpdaterThread extends Thread {
         try {
             while (funcionando) {
                 System.out.println("Actualizando");
-                //TODO: hacer operacion de actualizar
-
+                
                 NetworkController n = NetworkController.getInstance();
 
                 List<Socket> sockets = n.getSockets();
+                
+                
+                Socket s;
+                for (int i=0; i<sockets.size(); i++) {
+                    s = sockets.get(i);
+                    File f = new File(RUTA+"cliente"+i+".clt");
+
+                    GetIndex gi = new GetIndex(s, f);
+
+                    gi.start();
+                    gi.join();
+
+                    f = gi.getIndex();
+
+                    Thread.sleep(250);
+
+                    gi.stop(); //mejor prevenir que lamentar
+                }
+
+                
 
                 /* actualizacion #n */
                 // crear el manejador de xml, para que la tabla este limpia, estado vacio, reconstruccion del arbol desde 0
@@ -59,29 +78,15 @@ public class ArbolUpdaterThread extends Thread {
                 //hacer que el arbol, sea rellenado por la clase ManejoXML con los datos extraidos de todos los XML procesados
                 manejo.rellenarArbol(arbolDatos);
 
+                ControladorBusqueda.setArbolDatos(arbolDatos);
+                
                 //Arbol rellenado con exito (espero )
 
                 //Generar el jpg del arbol :P
                 //arbolDatos.generarGrafoJPG("/tmp/grafos","arbol");
 
-                Socket s;
-                for (int i=0; i<sockets.size(); i++) {
-                    s = sockets.get(i);
-                    File f = new File(RUTA+"cliente"+i+".clt");
 
-                    GetIndex gi = new GetIndex(s, f);
-
-                    gi.start();
-                    gi.join();
-
-                    f = gi.getIndex();
-
-                    Thread.sleep(250);
-
-                    gi.stop(); //mejor prevenir que lamentar
-                }
-
-                Thread.sleep(1000 * 30); //3 mins
+                Thread.sleep(1000 * 60*3); //3 mins
             }
         } catch (Exception e) {
 

@@ -26,7 +26,7 @@ public abstract class NetWorkControllerThread extends Thread {
             in = new BufferedReader(new InputStreamReader(input),1); //eso hace abstrae el inputreader, sin hacer sufrir los /n
         }
         catch (Exception e){
-            
+            e.printStackTrace();
         }
     }
     
