@@ -1,10 +1,33 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<%@ page contentType="text/html;charset=windows-1252"%>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
-    <title>doLogin</title>
-  </head>
-  <body></body>
-</html>
+<jsp:useBean id="admon" class="LogicaBaseDeDatos.AdministradorSeguridad" scope="page" />
+<jsp:useBean id="usuario" class="LogicaBaseDeDatos.Usuario" scope="session"/>
+<%
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    
+    if (username == null || password == null){ %>
+        <jsp:forward page="index.jsp">
+            <jsp:param name="error" value="noUsernamePass" />
+        </jsp:forward>
+<%  }
+    else {
+        if (admon.existe(username, password)){
+            usuario.setUsername(username);
+            usuario.setValido(true);
+            %>
+            <jsp:forward page="index.jsp">
+                <jsp:param name="autorizado" value="yeah" />
+            </jsp:forward>
+            <%
+        } else { %>
+            <jsp:forward page="index.jsp">
+                <jsp:param name="autorizado" value="nopes" />
+            </jsp:forward>
+    <% }
+    
+    }
+
+
+
+
+
+%>

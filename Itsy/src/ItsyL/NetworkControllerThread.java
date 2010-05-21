@@ -1,5 +1,7 @@
 package ItsyL;
 
+import FullTextSearch.FileIndexer;
+
 import UIVista.ItsyVista;
 
 import java.io.BufferedInputStream;
@@ -12,6 +14,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import java.net.Socket;
+
+import java.util.List;
 
 public class NetworkControllerThread extends Thread {
 
@@ -56,7 +60,7 @@ public class NetworkControllerThread extends Thread {
                     out.println("listo");
                 } //fin dameIndice
                 //Terrible error de seguridad, pero que se le hace...
-                if (inputLine.equals("dameArchivo")){ //pide archivos a gusto
+           else if (inputLine.equals("dameArchivo")){ //pide archivos a gusto
                     inputLine = in.readLine();
                     File f;
                     try {
@@ -71,9 +75,25 @@ public class NetworkControllerThread extends Thread {
                     }
                     sendFile(f);
                     out.println("listo");
-                    
                 } // fin dameArchivo
-
+          else  if (inputLine.equals("buscaArchivo")){
+                    inputLine = in.readLine();
+                    
+                    out.println("inicioEnvio");
+                    
+                    FileIndexer fi = FileIndexer.getInstance();
+                    List<Item> listo = fi.buscarQuery(inputLine);
+                    
+                    for (Item i: listo){
+                        out.println(i.getArchivo().getName());
+                        out.println(i.getRuta());
+                    }
+                    
+                    out.println("listo");
+                    
+                    continue;
+                }
+                
             }
             
         } catch (Exception e){

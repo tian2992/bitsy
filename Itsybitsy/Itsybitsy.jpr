@@ -54,6 +54,7 @@
       <string v="oracle.adfdtinternal.model.ide.settings.ADFMSettings/adfmContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
+   <value n="defaultPackage" v="itsybitsy"/>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
       <hash n="runConfigurationDefinitions">
          <hash n="Default">
@@ -75,6 +76,10 @@
             <value n="id" v="JSP Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Mysql-connector-java-5.0.8-bin.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -85,6 +90,15 @@
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Jdom.jar"/>
                <value n="id" v="Jdom.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Librerias &amp; BD/mysql-connector-java-5.0.8-bin.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Mysql-connector-java-5.0.8-bin.jar"/>
+               <value n="id" v="Mysql-connector-java-5.0.8-bin.jar"/>
                <value n="locked" v="true"/>
             </hash>
          </list>
@@ -98,6 +112,13 @@
             <value n="id" v="JSP Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Mysql-connector-java-5.0.8-bin.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
+   </hash>
+   <hash n="oracle.jdevimpl.config.JProjectPaths">
+      <url n="outputDirectory" path="classes/"/>
    </hash>
 </jpr:project>

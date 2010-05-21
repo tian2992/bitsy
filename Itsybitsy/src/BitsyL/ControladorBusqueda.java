@@ -2,6 +2,9 @@ package BitsyL;
 
 import arbolB.ArbolB;
 import java.io.Serializable;
+
+import java.net.Socket;
+
 import java.util.Date;
 import java.util.List;
 import listaEnlazada.*;
@@ -28,7 +31,13 @@ public class ControladorBusqueda implements Serializable {
      * @return
      * @throws ExcepcionFiltroIncorrecto
      */
-    public List<Item> buscar(String nombre, String[] filtroArchivo, Date[] filtroFecha) throws ExcepcionFiltroIncorrecto{
+    public List<Item> buscar(String nombre, boolean simple, String[] filtroArchivo, Date[] filtroFecha) throws ExcepcionFiltroIncorrecto{
+        
+        if (!simple){
+            return buscarContenido(nombre);
+        }
+        
+        
         if (filtroFecha != null){
             if (filtroFecha.length != 2){
                 throw new ExcepcionFiltroIncorrecto("Error en filtros de fecha");
@@ -66,10 +75,22 @@ public class ControladorBusqueda implements Serializable {
         
     }
     
-    public List<Item> buscarElemento(){
-        return null;
+    public List<Item> buscarContenido(String cadena){
+        ListaEnlazada<Item> list = new ListaEnlazada<Item>();
+        try {
+            for (Socket s: NetworkController.getInstance().getSockets()){
+                FindFile fin = new FindFile(s,cadena);
+                fin.start();
+                fin.join();
+                list.addAll(fin.getLis());
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        
+        return list;
     }
-
+            
     //Setters y Getters
 
     public static void setArbolDatos(ArbolB<String, ListaEnlazada<Item>> ab) {
