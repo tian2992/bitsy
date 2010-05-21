@@ -34,12 +34,11 @@ public class TestEscrituraXML {
 
         try {
             
-            FileWriter f = new FileWriter("C:\\Users\\Black Empires\\Downloads\\prueba.xml");
+            //FileWriter f = new FileWriter("C:\\Users\\Black Empires\\Downloads\\prueba.xml");
             
-            f.write(cliente.escrituraXML( host , ip ,
-                                                "C:\\Users\\Black Empires\\Downloads"));
+            //f.write(cliente.escrituraXML( host , ip ,"C:\\Users\\Black Empires\\Downloads"));
             
-            f.close();
+            //f.close();
           
           System.out.println("listo");
             

@@ -1,11 +1,13 @@
 <%@ page import="LogicaBaseDeDatos.*" %>
-<%@ page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.util.Date"%>
+<%@ page import="java.text.*" %>
+<%@ page import="java.util.*" %>
 
-<%          
-
+<%  
+    
+    
     //Validaciones
     boolean huboError = false;
+    
     if (request.getParameter("user") == null || request.getParameter("user").toString().length() == 0) {
 
         session.setAttribute("Mensaje", "Error el correo electronico es un campo requerido");
