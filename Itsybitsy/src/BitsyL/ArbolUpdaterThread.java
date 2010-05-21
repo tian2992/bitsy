@@ -29,10 +29,10 @@ public class ArbolUpdaterThread extends Thread {
                 NetworkController n = NetworkController.getInstance();
 
                 List<Socket> sockets = n.getSockets();
-
-                for (Socket s : sockets) {
-                    //TODO: cambiar el archivo correcto
-                    File f = new File("/tmp/bleg");
+                Socket s;
+                for (int i; i< sockets.size(); i++) {
+                    s = sockets.get(i);
+                    File f = new File("/tmp/BitsyXML"); //Ruta donde se va a guardar el XML
 
                     GetIndex gi = new GetIndex(s, f);
 

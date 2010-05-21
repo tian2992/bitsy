@@ -1,0 +1,623 @@
+<CACliente id="Kaji-Ryoji" ip="127.0.0.2" raiz="clojure-1.1.0">
+
+
+
+<archivo nombre="clojure.jar" size="1846856" fecha_modificacion="31/12/2009" extension="jar">
+</archivo>
+
+<archivo nombre="readme.txt" size="2318" fecha_modificacion="31/12/2009" extension="txt">
+</archivo>
+
+<carpeta nombre="src">
+<carpeta nombre="jvm">
+<carpeta nombre="clojure">
+<archivo nombre="main.java" size="1374" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<carpeta nombre="asm">
+<archivo nombre="FieldVisitor.java" size="2739" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="AnnotationVisitor.java" size="4304" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<carpeta nombre="commons">
+<archivo nombre="GeneratorAdapter.java" size="39392" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="EmptyVisitor.java" size="5482" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="CodeSizeEvaluator.java" size="5185" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="AdviceAdapter.java" size="14661" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="LocalVariablesSorter.java" size="9144" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="SerialVersionUIDAdder.java" size="16474" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="TableSwitchGenerator.java" size="2231" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Method.java" size="8005" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="AnalyzerAdapter.java" size="21167" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="StaticInitMerger.java" size="3276" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="package.html" size="2920" fecha_modificacion="31/12/2009" extension="html">
+</archivo>
+
+</carpeta>
+
+
+<archivo nombre="Edge.java" size="3109" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Frame.java" size="38133" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ClassVisitor.java" size="8682" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Type.java" size="21225" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ClassWriter.java" size="40114" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ByteVector.java" size="8518" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="FieldWriter.java" size="7381" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="MethodVisitor.java" size="18329" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Label.java" size="15279" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Attribute.java" size="9528" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ClassReader.java" size="62604" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="MethodAdapter.java" size="5321" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="AnnotationWriter.java" size="9537" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Handler.java" size="2421" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="package.html" size="4439" fecha_modificacion="31/12/2009" extension="html">
+</archivo>
+
+<archivo nombre="ClassAdapter.java" size="3747" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Opcodes.java" size="9954" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="MethodWriter.java" size="81918" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Item.java" size="7549" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+</carpeta>
+
+
+<carpeta nombre="lang">
+<archivo nombre="IMeta.java" size="582" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="PersistentList.java" size="6068" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="DynamicClassLoader.java" size="2241" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Range.java" size="1852" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IChunk.java" size="646" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Counted.java" size="648" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="TransactionalHashMap.java" size="4203" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="PersistentHashMap.java" size="29311" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ChunkedCons.java" size="1486" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="AReference.java" size="1120" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ATransientMap.java" size="2277" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Streamable.java" size="597" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Settable.java" size="654" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Cons.java" size="1156" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ASeq.java" size="5639" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IMapEntry.java" size="607" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="RT.java" size="47551" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Reversible.java" size="588" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="AMapEntry.java" size="2893" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IPersistentList.java" size="579" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="LockingTransaction.java" size="14584" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Namespace.java" size="4814" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="PersistentTreeMap.java" size="21979" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Util.java" size="1767" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="XMLHandler.java" size="2362" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="LineNumberingPushbackReader.java" size="2023" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Var.java" size="15058" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Box.java" size="623" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="APersistentMap.java" size="7516" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="PersistentHashSet.java" size="2206" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Symbol.java" size="2835" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IObj.java" size="611" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Delay.java" size="903" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Agent.java" size="4277" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Numbers.java" size="93238" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Ratio.java" size="1907" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ITransientAssociative.java" size="662" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IEditableCollection.java" size="604" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IteratorStream.java" size="774" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Keyword.java" size="7168" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Seqable.java" size="573" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="AFn.java" size="16409" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Reflector.java" size="12712" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="LazilyPersistentVector.java" size="1069" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IRef.java" size="738" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Indexed.java" size="591" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IPersistentMap.java" size="755" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IPersistentStack.java" size="635" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ArraySeq.java" size="15545" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IndexedSeq.java" size="578" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Atom.java" size="2206" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Compile.java" size="2305" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ITransientSet.java" size="729" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="LispReader.java" size="29999" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ChunkBuffer.java" size="879" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ArrayChunk.java" size="1331" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="PersistentVector.java" size="16960" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IDeref.java" size="587" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Script.java" size="664" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="PersistentArrayMap.java" size="7415" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ITransientVector.java" size="674" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ILookup.java" size="625" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="APersistentVector.java" size="11450" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Stream.java" size="2011" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="SeqEnumeration.java" size="828" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Compiler.java" size="150974" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Associative.java" size="687" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="LazySeq.java" size="4415" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IFn.java" size="5119" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ARef.java" size="2128" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="StringSeq.java" size="1189" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Sorted.java" size="718" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IProxy.java" size="729" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IReduce.java" size="649" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Repl.java" size="660" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ATransientSet.java" size="1362" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="APersistentSet.java" size="2977" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Named.java" size="596" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="SeqIterator.java" size="998" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ISeq.java" size="815" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ITransientMap.java" size="714" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="EnumerationSeq.java" size="1568" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Ref.java" size="11315" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Sequential.java" size="532" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Fn.java" size="551" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IteratorSeq.java" size="1562" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Binding.java" size="735" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="PersistentTreeSet.java" size="2314" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IPersistentCollection.java" size="682" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IReference.java" size="691" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IChunkedSeq.java" size="691" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="RestFn.java" size="63087" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ITransientCollection.java" size="646" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ProxyHandler.java" size="2043" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="ArrayStream.java" size="3931" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="Obj.java" size="808" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="AFunction.java" size="1043" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="PersistentStructMap.java" size="5855" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IPersistentSet.java" size="732" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="MultiFn.java" size="13768" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="PersistentQueue.java" size="6547" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="IPersistentVector.java" size="713" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+<archivo nombre="MapEntry.java" size="895" fecha_modificacion="31/12/2009" extension="java">
+</archivo>
+
+</carpeta>
+
+
+</carpeta>
+
+
+</carpeta>
+
+
+<carpeta nombre="clj">
+<carpeta nombre="clojure">
+<archivo nombre="core.clj" size="160071" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="walk.clj" size="4234" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="parallel.clj" size="8830" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="set.clj" size="4688" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="core_print.clj" size="10849" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="xml.clj" size="4445" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="inspector.clj" size="5527" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="zip.clj" size="9069" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="stacktrace.clj" size="2335" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="template.clj" size="1960" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="core_proxy.clj" size="18643" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="test.clj" size="23455" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="version.properties" size="135" fecha_modificacion="31/12/2009" extension="properties">
+</archivo>
+
+<archivo nombre="genclass.clj" size="30522" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<carpeta nombre="test">
+<archivo nombre="junit.clj" size="5381" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="tap.clj" size="3438" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+</carpeta>
+
+
+<archivo nombre="main.clj" size="12069" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+</carpeta>
+
+
+</carpeta>
+
+
+</carpeta>
+
+
+<archivo nombre="pom-template.xml" size="828" fecha_modificacion="31/12/2009" extension="xml">
+</archivo>
+
+<archivo nombre="changes.txt" size="6574" fecha_modificacion="31/12/2009" extension="txt">
+</archivo>
+
+<archivo nombre=".gitignore" size="77" fecha_modificacion="31/12/2009" extension="gitignore">
+</archivo>
+
+<carpeta nombre="test">
+<carpeta nombre="clojure">
+<archivo nombre="test_clojure.clj" size="2272" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<carpeta nombre="test_clojure">
+<archivo nombre="multimethods.clj" size="746" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="logic.clj" size="3627" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="sequences.clj" size="24437" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="vars.clj" size="1913" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="ns_libs.clj" size="841" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="parallel.clj" size="818" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="clojure_set.clj" size="3694" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="data_structures.clj" size="19480" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="test_fixtures.clj" size="1246" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="clojure_zip.clj" size="867" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="compilation.clj" size="1490" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="printer.clj" size="2995" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="clojure_xml.clj" size="623" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="numbers.clj" size="10342" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="metadata.clj" size="603" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="reader.clj" size="7280" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="predicates.clj" size="3190" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="atoms.clj" size="642" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="java_interop.clj" size="10706" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="test.clj" size="3903" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="control.clj" size="6039" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="refs.clj" size="680" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="evaluation.clj" size="7906" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="special.clj" size="670" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="other_functions.clj" size="1373" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="test_utils.clj" size="1051" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="for.clj" size="5926" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="macros.clj" size="631" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+<archivo nombre="agents.clj" size="1441" fecha_modificacion="31/12/2009" extension="clj">
+</archivo>
+
+</carpeta>
+
+
+</carpeta>
+
+
+</carpeta>
+
+
+<archivo nombre="build.xml" size="8923" fecha_modificacion="31/12/2009" extension="xml">
+</archivo>
+
+<archivo nombre="epl-v10.html" size="12917" fecha_modificacion="31/12/2009" extension="html">
+</archivo>
+
+</CACliente>

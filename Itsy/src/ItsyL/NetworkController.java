@@ -25,6 +25,15 @@ public class NetworkController{
         return false;
     }
     
+    public void stop(){
+        try {
+        n.socket.close();
+        n.stop();
+        } catch (Exception e){
+            
+        }
+    }
+    
     private NetworkController(){
 
         
